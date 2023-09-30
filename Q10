@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int codigoCidade, numVeiculos, numAcidentes;
+    char estado[3];
+    int totalVeiculos = 0, totalAcidentesRS = 0;
+    float mediaVeiculos, mediaAcidentesRS;
+    int menorIndice = INT_MAX, maiorIndice = INT_MIN;
+    int cidadeMenorIndice, cidadeMaiorIndice;
+
+    for (int i = 0; i < 200; i++) {
+        
+        printf("Cidade %d:\n", i + 1);
+        printf("Codigo da cidade: ");
+        scanf("%d", &codigoCidade);
+        printf("Estado: ");
+        scanf("%s", estado);
+        printf("Numero de veiculos de passeio (em 1992): ");
+        scanf("%d", &numVeiculos);
+        printf("Numero de acidentes de transito com vitimas (em 1992): ");
+        scanf("%d", &numAcidentes);
+
+        
+        totalVeiculos += numVeiculos;
+
+        
+        if (estado[0] == 'R' && estado[1] == 'S') {
+            totalAcidentesRS += numAcidentes;
+        }
+
+        
+        float indiceAcidentes = (float)numAcidentes / numVeiculos;
+        if (indiceAcidentes < menorIndice) {
+            menorIndice = indiceAcidentes;
+            cidadeMenorIndice = codigoCidade;
+        }
+        if (indiceAcidentes > maiorIndice) {
+            maiorIndice = indiceAcidentes;
+            cidadeMaiorIndice = codigoCidade;
+        }
+    }
+
+    
+    mediaVeiculos = (float)totalVeiculos / 200;
+    mediaAcidentesRS = (float)totalAcidentesRS / 200;
+
+    
+    printf("\na) Menor indice de acidentes de transito: %.2f (Cidade %d)\n", menorIndice, cidadeMenorIndice);
+    printf("   Maior indice de acidentes de transito: %.2f (Cidade %d)\n", maiorIndice, cidadeMaiorIndice);
+    printf("b) Media de veiculos nas cidades brasileiras: %.2f\n", mediaVeiculos);
+    printf("c) Media de acidentes com vitimas no Rio Grande do Sul: %.2f\n", mediaAcidentesRS);
+
+    return 0;
+}
