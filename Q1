@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double x, resultado;
+
+    // Solicita ao usuário para inserir o valor de x
+    printf("Digite o valor de x: ");
+    scanf("%lf", &x);
+
+    // Verifica se o denominador é válido (x^2 - 16 não pode ser zero ou negativo)
+    if (x * x - 16 <= 0) {
+        printf("Erro: O denominador deve ser maior que zero. Tente outro valor de x.\n");
+    } else {
+        // Calcula o valor de F(x)
+        resultado = (5 * x + 3) / sqrt(x * x - 16);
+
+        // Imprime o resultado
+        printf("F(x) = %.2lf\n", resultado);
+    }
+
+    return 0;
+}
