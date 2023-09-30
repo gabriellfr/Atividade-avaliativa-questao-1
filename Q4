@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    float A, B, C;
+    
+    
+    printf("Digite o valor de A: ");
+    scanf("%f", &A);
+    printf("Digite o valor de B: ");
+    scanf("%f", &B);
+    printf("Digite o valor de C: ");
+    scanf("%f", &C);
+
+    
+    if (A + B > C && A + C > B && B + C > A) {
+        
+        if (A * A + B * B == C * C || A * A + C * C == B * B || B * B + C * C == A * A) {
+            printf("E um triangulo retangulo.\n");
+        } else if (A * A + B * B < C * C || A * A + C * C < B * B || B * B + C * C < A * A) {
+            printf("E um triângulo obtusangulo.\n");
+        } else {
+            printf("E um triangulo acutangulo.\n");
+        }
+    } else {
+        printf("Os valores dados nao formam um triangulo.\n");
+    }
+
+    return 0;
+}
